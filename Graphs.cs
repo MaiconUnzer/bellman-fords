@@ -30,9 +30,10 @@ namespace BellmanFords
             distance[source] = 0;
 
             // Step 2: relax edges |V| - 1 times
-            for (int i = 1; i < amountVertices; ++i)
-                for (int j = 0; j < amountEdges; ++j)
+            for (int i = 1; i < amountVertices; ++i)//O(V)
+                for (int j = 0; j < amountEdges; ++j)//O(E) 
                 {
+                    //O(V . E) = O(N2) - worst than Dijkstra, but, can handle negative paths
                     var edge = Edges[j];
                     int sourceVertex = edge.SourceVertex;
                     int destinationVertex = edge.DestinationVertex;
